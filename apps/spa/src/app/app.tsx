@@ -1,28 +1,17 @@
-import React, { useEffect, useState } from 'react';
-import { Message } from '@testing/api-interfaces';
+import CheckboxWithLabel from './CheckboxWithLabel'
+import JWKS from './JWKS'
 
 export const App = () => {
-  const [m, setMessage] = useState<Message>({ message: '' });
-
-  useEffect(() => {
-    fetch('/api')
-      .then((r) => r.json())
-      .then(setMessage);
-  }, []);
-
   return (
     <>
       <div style={{ textAlign: 'center' }}>
-        <h1>Welcome to spa!</h1>
-        <img
-          width="450"
-          src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png"
-          alt="Nx - Smart, Fast and Extensible Build System"
-        />
+        <h1>SPA</h1>
       </div>
-      <div>{m.message}</div>
+      <div>Hello</div>
+      <CheckboxWithLabel labelOn="On" labelOff="Off" />
+      <JWKS uri="https://www.googleapis.com/oauth2/v3/certs" />
     </>
-  );
-};
+  )
+}
 
-export default App;
+export default App
